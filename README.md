@@ -2,4 +2,4 @@
 
 https://adventofcode.com/2022
 
-## Day 1 ⭐️
+## Day 1 ⭐️⭐️
