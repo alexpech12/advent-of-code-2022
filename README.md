@@ -60,8 +60,25 @@ string common_chars(string str1, string str2) {
 
 ## Day 4 ⭐️⭐️
 
-### Part 1
 _Now_ is the time for regex!
 ```
 /(\\d*)-(\\d*),(\\d*)-(\\d*)/
+```
+
+Reminder, this is how to get regex captures in C++.
+```
+#include <regex>
+
+// Define regex
+static regex const matcher( "(\\d*)-(\\d*),(\\d*)-(\\d*)" );
+smatch result;
+
+// Perform matching
+regex_search("7-11,8-15", result, matcher);
+
+// Extract captures
+int c1 = stoi(result.str(1));
+int c2 = stoi(result.str(2));
+int c3 = stoi(result.str(3));
+int c4 = stoi(result.str(4));
 ```
