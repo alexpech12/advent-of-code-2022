@@ -57,3 +57,11 @@ string common_chars(string str1, string str2) {
   return common;
 }
 ```
+
+## Day 4 ⭐️
+
+### Part 1
+_Now_ is the time for regex!
+```
+/(\\d*)-(\\d*),(\\d*)-(\\d*)/
+```
