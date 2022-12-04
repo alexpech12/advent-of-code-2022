@@ -2,6 +2,8 @@
 
 https://adventofcode.com/2022
 
+This year, I'm branching out from my usual Ruby-ing and dusting off my C++.
+
 ## Day 1 ⭐️⭐️
 
 ## Day 2 ⭐️⭐️
