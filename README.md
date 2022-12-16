@@ -87,7 +87,7 @@ int c4 = stoi(result.str(4));
 
 ## Day 5 ⭐️⭐️
 
-## Day 6 ⭐️
+## Day 6 ⭐️⭐️
 
 ### Part 1
 Brute-forcing a test for unique characters. So far so good...
@@ -99,3 +99,21 @@ line[i-2] != line[i-1] &&
 line[i-2] != line[i] &&
 line[i-1] != line[i]
 ```
+
+### Part 2
+Brute-forcing not really an option when we need to compare 14 characters, so it's time to use sets!
+
+The function to count unique characters in a string:
+```
+int unique_chars(char *start, int len) {
+  set<char> uniq;
+  for(auto i = 0; i < len; i++) {
+    uniq.insert(start[i]);
+  }
+  return uniq.size();
+}
+```
+
+This is neat because we just pass in our `char*` pointer plus the number of characters to add to our set. The `set<char>` handles all the uniqueness checks for us!
+
+Definitely not a *safe* function, but it's quick.
