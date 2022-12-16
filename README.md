@@ -86,3 +86,16 @@ int c4 = stoi(result.str(4));
 ```
 
 ## Day 5 ⭐️⭐️
+
+## Day 6 ⭐️
+
+### Part 1
+Brute-forcing a test for unique characters. So far so good...
+```
+line[i-3] != line[i-2] &&
+line[i-3] != line[i-1] &&
+line[i-3] != line[i] &&
+line[i-2] != line[i-1] &&
+line[i-2] != line[i] &&
+line[i-1] != line[i]
+```
