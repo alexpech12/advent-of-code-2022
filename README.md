@@ -117,3 +117,37 @@ int unique_chars(char *start, int len) {
 This is neat because we just pass in our `char*` pointer plus the number of characters to add to our set. The `set<char>` handles all the uniqueness checks for us!
 
 Definitely not a *safe* function, but it's quick.
+
+## Day 7 ⭐️
+
+### Part 1
+
+Lambdas and recursive functions!
+```
+class Node {
+  ...
+    template<typename Functor>
+    void traverse(Functor yield) {
+      if (children.size() == 0)
+        return;
+
+      for(auto pair : children) {
+        auto child = &pair.second;
+        yield(child);
+        child->traverse(yield);
+      }
+    }
+  ...
+};
+
+...
+
+auto print_tree = [](Node *node) mutable {
+  for(int i = 0; i < node->getDepth(); i++) {
+    cout << "   ";
+  }
+  cout << node->getName() << " (" << (node->isDir() ? "dir" : "file") << ", size=" << node->getSize() << ")\n";
+};
+
+tree.traverse(print_tree);
+```
