@@ -182,4 +182,4 @@ tree.traverse(min_space_to_free);
 
 ## Day 9 ⭐️⭐️
 
-## Day 10 ⭐️
+## Day 10 ⭐️⭐️
