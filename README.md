@@ -118,11 +118,11 @@ This is neat because we just pass in our `char*` pointer plus the number of char
 
 Definitely not a *safe* function, but it's quick.
 
-## Day 7 ⭐️
+## Day 7 ⭐️⭐️
 
 ### Part 1
 
-Lambdas and recursive functions!
+Lambdas (with captures!) and recursive functions!
 ```
 class Node {
   ...
@@ -150,4 +150,30 @@ auto print_tree = [](Node *node) mutable {
 };
 
 tree.traverse(print_tree);
+```
+
+## Part 2
+All the hard work in part 1 is paying off. Part 2 just requires swapping to a new lambda function.
+```
+const int TOTAL_DISK_SPACE = 70000000;
+const int REQUIRED_DISK_SPACE = 30000000;
+
+int used_space = tree.getSize();
+int unused_space = TOTAL_DISK_SPACE - used_space;
+int space_to_free = REQUIRED_DISK_SPACE - unused_space;
+
+cout << used_space << " of " << TOTAL_DISK_SPACE << " used. Need to delete " << space_to_free << " to have " << REQUIRED_DISK_SPACE << " free." << endl;
+
+int min = TOTAL_DISK_SPACE;
+auto min_space_to_free = [&min, space_to_free](Node *node) mutable {
+  if (!node->isDir())
+    return;
+
+  int size = node->getSize();
+  if (size > space_to_free && size < min) {
+    min = size;
+  }
+};
+
+tree.traverse(min_space_to_free);
 ```
