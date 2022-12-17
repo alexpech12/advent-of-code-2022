@@ -177,3 +177,5 @@ auto min_space_to_free = [&min, space_to_free](Node *node) mutable {
 
 tree.traverse(min_space_to_free);
 ```
+
+## Day 8 ⭐️
