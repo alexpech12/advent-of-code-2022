@@ -185,3 +185,8 @@ tree.traverse(min_space_to_free);
 ## Day 10 ⭐️⭐️
 
 ## Day 11 ⭐️
+
+### Part 2
+Oh no...
+
+Something something chinese remainder theorem, and I don't think I can be bothered working this out...
