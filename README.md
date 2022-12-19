@@ -191,9 +191,14 @@ Oh no...
 
 Something something chinese remainder theorem, and I don't think I can be bothered working this out...
 
-## Day 12 ⭐️
+## Day 12 ⭐️⭐️
 
 ### Part 1
 Once again, I've copied the A* pathfinding pseudocode straight from wikipedia and (in this case) converted to C++.
 
 Ol' faithful A* got me the right answer.
+
+### Part 2
+Fixed goal, moving start point, means A* is no good! A fixed goal location means we can treat it as the start point and generate a 'distance' map from the goal, where the value in the map is the number of steps away from the goal it is.
+
+In hindsight, this would also have been an easier way to do part 1. A* was overkill.
