@@ -190,3 +190,10 @@ tree.traverse(min_space_to_free);
 Oh no...
 
 Something something chinese remainder theorem, and I don't think I can be bothered working this out...
+
+## Day 12 ⭐️
+
+### Part 1
+Once again, I've copied the A* pathfinding pseudocode straight from wikipedia and (in this case) converted to C++.
+
+Ol' faithful A* got me the right answer.
