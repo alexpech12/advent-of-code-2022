@@ -13,6 +13,8 @@ def tab_puts(str)
   puts "#{'  ' * @nesting}- #{str}"
 end
 
+RIGHT_ORDER = -1
+WRONG_ORDER = 1
 def compare(a, b)
   tab_puts "Compare #{a} vs #{b}"
   tab
@@ -20,14 +22,14 @@ def compare(a, b)
     if a < b
       tab_puts 'Left side is smaller, so inputs are in the right order' 
       untab
-      return true
+      return RIGHT_ORDER
     elsif a == b
       untab
       return nil
     else
       tab_puts 'Right side is smaller, so inputs are not in the right order'
       untab
-      return false
+      return WRONG_ORDER
     end
   elsif a.is_a? Integer
     tab_puts "Mixed types; convert left to [#{a}] and retry comparison"
@@ -43,11 +45,11 @@ def compare(a, b)
     if a.empty?
       tab_puts 'Left side ran out of items, so inputs are in the right order'
       untab
-      return true
+      return RIGHT_ORDER
     elsif b.empty?
       tab_puts 'Right side ran out of items, so inputs are not in the right order'
       untab
-      return false
+      return WRONG_ORDER
     end
     (0..).each do |i|
       #tab_puts "Checking #{a[i]} vs #{b[i]}"
@@ -57,11 +59,11 @@ def compare(a, b)
       elsif a[i].nil?
         tab_puts 'Left side ran out of items, so inputs are in the right order'
         untab
-        return true
+        return RIGHT_ORDER
       elsif b[i].nil?
         tab_puts 'Right side ran out of items, so inputs are not in the right order'
         untab
-        return false
+        return WRONG_ORDER
       end
       
       result = compare(a[i], b[i])
@@ -78,13 +80,22 @@ end
 File.open(ARGV[0], 'r') do |f|
   lines = f.readlines
 
-  sum_indices = 0
-  lines.each_slice(3).with_index do |(a, b, _newline), i|
-    puts "== Pair #{i + 1} =="
-    sum_indices += i+1 if compare(eval(a.rstrip), eval(b.rstrip))
-    puts
-    #break if i == 1
-  end
+  unsorted_list = lines.map do |line|
+    eval(line.strip)
+  end.compact
 
-  puts sum_indices
+  decoder_keys = [
+    [[2]],
+    [[6]]
+  ]
+  unsorted_list += decoder_keys
+
+  puts unsorted_list.to_s
+
+  sorted_list = unsorted_list.sort { |a, b| compare(a, b) }
+  
+  sorted_list.each { |x| puts x.to_s }
+
+  decoder_key = (sorted_list.index(decoder_keys[0]) + 1) * (sorted_list.index(decoder_keys[1]) + 1)
+  puts decoder_key
 end
