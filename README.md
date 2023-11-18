@@ -202,3 +202,14 @@ Ol' faithful A* got me the right answer.
 Fixed goal, moving start point, means A* is no good! A fixed goal location means we can treat it as the start point and generate a 'distance' map from the goal, where the value in the map is the number of steps away from the goal it is.
 
 In hindsight, this would also have been an easier way to do part 1. A* was overkill.
+
+---
+
+Time passes...
+
+---
+
+## Day 13 ⭐️
+
+### Part 1
+Picking things up again as a warm-up to 2023! Starting again in Ruby...
